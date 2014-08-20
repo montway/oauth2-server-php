@@ -53,7 +53,7 @@ class ClientCredentials extends HttpBasic implements GrantTypeInterface
          *
          * @see http://tools.ietf.org/html/rfc6749#section-4.4.3
          */
-        $includeRefreshToken = false;
+        $includeRefreshToken = array_key_exists('always_issue_new_refresh_token', $this->config) ? $this->config['always_issue_new_refresh_token'] : false;
 
         return $accessToken->createAccessToken($client_id, $user_id, $scope, $includeRefreshToken);
     }
