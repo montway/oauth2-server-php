@@ -199,7 +199,7 @@ class Request implements RequestInterface
             parse_str($request->getContent(), $data);
             $request->request = $data;
         } elseif (0 === strpos($contentType, 'application/json')
-            && in_array(strtoupper($requestMethod), array('POST', 'PUT', 'DELETE'))
+            && in_array(strtoupper($requestMethod), array('POST', 'PUT', 'PATCH', 'DELETE'))
         ) {
             $data = json_decode($request->getContent(), true);
             $request->request = $data;
